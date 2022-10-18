@@ -1,4 +1,4 @@
-# lap2Challenge
+# LAP 2 Challenge
 
 - Your app should have a browser client allowing users to write a post with a title, a pseudonym and a body
 - No login should be required to create a post or visit a post

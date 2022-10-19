@@ -1,4 +1,4 @@
-db = connect("mongodb://localhost:27017/secrets")
+db = connect("mongodb://localhost:27017/lap2db")
 
 db.secrets.drop()
 

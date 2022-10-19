@@ -25,8 +25,9 @@ class Secret {
     static create(data){
         return new Promise(async (resolve, reject) => {
             try {
+                console.log("Create function - data: ", data)
                 const db = await init()
-                let secret = await db.collection('secrets').insertOne({data})
+                let secret = await db.collection('secrets').insertOne(data)
                 resolve(secret)
             } catch (err){
                 reject(`Error creating secret: ${err.message}`)

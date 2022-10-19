@@ -13,6 +13,7 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
+        console.log("Post call - req.body: ", req.body)
         const secret = await Secret.create(req.body)
         res.status(201).json(secret)
     } catch (err) {

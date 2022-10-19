@@ -1,13 +1,13 @@
 const data = document.getElementById("form");
-const title = document.getElementById("title");
-const name = document.getElementById("name");
-const text = document.getElementById("text");
+const publish = document.getElementById("publish");
 
 for (const el of data.children) {
   if (el.classList.contains("empty")) {
     el.textContent = el.dataset.placeholder;
   }
 }
+
+publish.addEventListener('click', postSecret)
 
 // REQUESTS
 
@@ -33,11 +33,20 @@ async function getById(secrets, id) {
 
 async function postSecret(e) {
   e.preventDefault();
+
+  const inputData = []
+
+  for (const el of data.children) {
+    inputData.push([el.dataset.label, el.textContent])
+  }
+
+  console.log("Post secret: ", inputData)
+
   try {
     const options = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(Object.fromEntries(new FormData(e.target))),
+      body: JSON.stringify(Object.fromEntries(inputData)),
     };
 
     const response = await fetch("http://localhost:3000/secrets", options);

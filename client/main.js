@@ -49,6 +49,8 @@ async function postSecret(e) {
       body: JSON.stringify(Object.fromEntries(inputData)),
     };
 
+    console.log(options.body)
+
     const response = await fetch("http://localhost:3000/secrets", options);
     const { id, err } = await response.json();
     if (err) {
@@ -57,7 +59,7 @@ async function postSecret(e) {
       window.location.hash = `#secrets/${id}`;
     }
   } catch (err) {
-    console.warn(err);
+    console.warn("Frontend error: ", err);
   }
 }
 

@@ -21,4 +21,13 @@ router.post('/', async (req, res) => {
     }
 })
 
+router.get('/:id', async (req,res) => {
+    try {
+        const secret = await Secret.findById(req.params.id);
+        res.status(200).json(secret)
+    } catch (err) {
+        res.status(500).send(err);
+    }
+})
+
 module.exports = router;

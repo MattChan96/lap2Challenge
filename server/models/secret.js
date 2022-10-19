@@ -34,6 +34,18 @@ class Secret {
             }
         })
     }
+
+    static findById(identity) {
+        return new Promise (async (resolve, reject) => {
+            try {
+                let db = await init()
+                let secret = await db.collection('secrets').find({id : parseInt(identity)}).toArray()
+                resolve(secret[0]);
+            } catch (err) {
+                reject('Secret not found');
+            };
+        })
+    }
 }
 
 module.exports = Secret;

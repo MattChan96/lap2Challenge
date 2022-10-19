@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+main {
+    width: 50%;
+    margin: auto;
+    position: relative;
+    padding: 16px 0;
+}
+
+article:focus {
+    outline: none;
+}
+
+p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+button {
+    padding: 8px 16px;
+    border-radius: 100px;
+    border: 2px solid black;
+    background: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 700;
+    position: absolute;
+    top: 24px;
+    left: calc(50vw - 8px);
+    margin: 16px;
+}
+
+.empty {
+    color: #9b9999;
+    font-weight: 400;
+}

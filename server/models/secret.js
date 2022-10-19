@@ -22,6 +22,18 @@ class Secret {
             }
         })
     }
+
+    static create(data){
+        return new Promise(async (resolve, reject) => {
+            try {
+                const db = await init()
+                let secret = await db.collection('secrets').insertOne({data})
+                resolve(secret)
+            } catch (err){
+                reject(`Error creating secret: ${err.message}`)
+            }
+        })
+    }
 }
 
 module.exports = Secret;

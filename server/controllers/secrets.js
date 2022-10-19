@@ -11,4 +11,11 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.post('/', async (req, res) => {
+    try {
+        const secret = await Secret.create(req.body)
+        res.status(201).json(secret)
+    }
+})
+
 module.exports = router;

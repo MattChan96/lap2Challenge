@@ -5,7 +5,6 @@ class Secret {
         this.id = data.id;
         this.title = data.title;
         this.pseudo = data.pseudo;
-        this.date = data.date;
         this.abstract = data.abstract;
     }
 

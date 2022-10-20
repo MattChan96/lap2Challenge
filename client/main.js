@@ -49,8 +49,6 @@ async function postSecret(e) {
       body: JSON.stringify(Object.fromEntries(new FormData(e.target))),
     };
 
-    console.log(options.body)
-
     const response = await fetch("http://localhost:3000/secrets", options);
     const { id, err } = await response.json();
     if (err) {

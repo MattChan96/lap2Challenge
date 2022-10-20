@@ -30,7 +30,8 @@ function updateMain(hash) {
 async function loadIndexFor(secrets){
     modal.style.display = 'none';
     const data = await getAll(secrets);
-    data.forEach(a => renderPost(a, secrets));
+    console.log(data)
+    data.data.forEach(a => renderPost(a, secrets));
 }
 
 function renderPost(data, secrets){

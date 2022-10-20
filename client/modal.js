@@ -32,12 +32,12 @@ async function loadModalFor(secrets, id) {
 
 function renderPostModal(secret) {
     modalHeader.textContent = `${secret.title}`;
-    const secretLink = createItemLink(secret.author);
+    const secretLink = createItemLink(secret);
     const abstract = document.createElement('p');
     abstract.textContent = secret.abstract;
     modalContent.appendChild(secretLink);
     modalContent.appendChild(abstract);
-    modalClose.href = `#secret`;
+    modalClose.href = `#secrets`;
 }
 
 function renderNewSecretPost(){
@@ -55,7 +55,9 @@ function renderNewSecretPost(){
 
 function createItemLink(data){
     const link = document.createElement('a');
-    link.href = `#${data.path.substring(1)}`;
-    link.textContent = data.name || data.title;
+    // console.log(data.p)
+    link.href = `#${data.pseudo}`;
+    // link.textContent = data.name || data.title;
+    link.textContent = data.pseudo;
     return link;
 }

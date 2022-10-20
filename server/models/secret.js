@@ -27,7 +27,8 @@ class Secret {
             try {
                 console.log("Create function - data: ", data)
                 const db = await init()
-                let secret = await db.collection('secrets').insertOne(data)
+                const dbLength = await db.collection('secrets').find({}).count()
+                let secret = await db.collection('secrets').insertOne({...data, id: dbLength + 1})
                 resolve(secret)
             } catch (err){
                 reject(`Error creating secret: ${err.message}`)

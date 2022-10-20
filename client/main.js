@@ -1,13 +1,13 @@
-const data = document.getElementById("form");
-const publish = document.getElementById("publish");
+// const data = document.getElementById("form");
+// const publish = document.getElementById("publish");
 
-for (const el of data.children) {
-  if (el.classList.contains("empty")) {
-    el.textContent = el.dataset.placeholder;
-  }
-}
+// for (const el of data.children) {
+//   if (el.classList.contains("empty")) {
+//     el.textContent = el.dataset.placeholder;
+//   }
+// }
 
-publish.addEventListener('click', postSecret)
+// publish.addEventListener('click', postSecret)
 
 // REQUESTS
 
@@ -34,19 +34,19 @@ async function getById(secrets, id) {
 async function postSecret(e) {
   e.preventDefault();
 
-  const inputData = []
+  // const inputData = []
 
-  for (const el of data.children) {
-    inputData.push([el.dataset.label, el.textContent])
-  }
+  // for (const el of data.children) {
+  //   inputData.push([el.dataset.label, el.textContent])
+  // }
 
-  console.log("Post secret: ", inputData)
+  // console.log("Post secret: ", inputData)
 
   try {
     const options = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(Object.fromEntries(inputData)),
+      body: JSON.stringify(Object.fromEntries(new FormData(e.target))),
     };
 
     console.log(options.body)
@@ -62,5 +62,3 @@ async function postSecret(e) {
     console.warn("Frontend error: ", err);
   }
 }
-
-//test

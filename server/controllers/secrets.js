@@ -17,7 +17,7 @@ router.post('/', async (req, res) => {
         const secret = await Secret.create(req.body)
         res.status(201).json(secret)
     } catch (err) {
-        res.status(422).json({ error: err})
+        res.status(422).json({ error: err })
     }
 })
 

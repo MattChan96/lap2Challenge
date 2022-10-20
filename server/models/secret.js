@@ -24,6 +24,11 @@ class Secret {
 
     static create(data){
         return new Promise(async (resolve, reject) => {
+            const data = new Secret({
+                title: req.body.title,
+                pseudo: req.body.pseudo,
+                abstract: req.body.abstract
+            })
             try {
                 console.log("Create function - data: ", data)
                 const db = await init()

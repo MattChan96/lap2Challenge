@@ -2,58 +2,133 @@
     box-sizing: border-box;
 }
 
+::selection {
+    background: #eb4196;
+    color: #ffffff;
+}
+
 html, body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0;
+    margin: 0;
+    background: #111933;
+    color: #ffffff;
+}
+
+h1, h2 {
+    text-align: center;
 }
 
 #linkset {
     display: flex;
-    justify-content: space-evenly;
-    
-  }
+    /* justify-content: space-evenly; */
+    justify-content: space-between;
+    width: 60%;
+    margin: auto;
+    padding: 16px 0;
+}
 
 a {
+    text-decoration: none;
+    color: #2478e6;
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: 4px solid underline;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main > a[href^="#secrets/"] {
+    display: inline-block;
+    color: #ffffff;
+    font-size: 2em;
+    text-align: center;
+    margin-top: 16px;
+    padding: 8px;
+}
+
+.post {
+    display: inline;
+    font-weight: 700;
+}
+
+/* a {
     display: flex;
     align-items: center;
     justify-content: center;
-}
+} */
 
-h2 {
+/* h2 {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
+} */
+
+/* form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+} */
 
 form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
 }
 
-article:focus {
+form > * {
+    width: 100%;
+    padding: 16px;
+    margin: 0;
+    border: none;
+    font-family: inherit;
+    font-size: 1em;
+}
+
+form > *:focus {
     outline: none;
+    background: #e0eaff;
 }
 
-p {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
-button {
-    padding: 8px 16px;
-    border-radius: 100px;
-    border: 2px solid black;
-    background: none;
+input[type='button'], input[type='submit'] {
     cursor: pointer;
-    text-transform: uppercase;
-    font-weight: 700;
-    top: 24px;
-    left: calc(50vw - 8px);
-    margin: 16px;
 }
 
-.empty {
-    color: #9b9999;
-    font-weight: 400;
+input[type='button']:hover, input[type='submit']:hover {
+    filter: brightness(90%);
+}
+
+article {
+    padding: 16px;
+}
+
+.redacted {
+    position: relative;
+}
+
+.redacted::after {
+    width: 100px;
+    height: 40px;
+    background: #000000;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 4px;
+    left: -6px;
+    transform: skewX(-5deg);
+    transition: width .2s ease-out;
+    pointer-events: none;
+}
+
+.redacted:hover::after {
+    width: 0px;
 }

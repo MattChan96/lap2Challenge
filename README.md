@@ -1,4 +1,5 @@
-#Lap 2 Coding Challenge
+
+# Lap 2 Coding Challenge
 
 ## Brief
 
@@ -9,25 +10,26 @@
 - Edit and delete functionality is not required
 
 
-##Installation & Usage
+## Installation & Usage
 
-###Installation
+### Installation
 
 - Clone or download the repo.
 - Run bash shell scripts
 
 
-###Usage
+### Usage
 
 
-##Changelog
+## Changelog
 
 
-##Bugs
+## Bugs
+- The immediately returned id is undefined when submitting a new secret
 
 
-##Wins & Challenges
+## Wins & Challenges
 
-###Wins
+### Wins
 
-###Challenges
+### Challenges

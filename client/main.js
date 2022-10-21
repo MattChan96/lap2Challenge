@@ -11,9 +11,11 @@
 
 // REQUESTS
 
+const API_URL = 'http://localhost:3000'
+
 async function getAll(secrets) {
   try {
-    const response = await fetch(`http://localhost:3000/${secrets}`);
+    const response = await fetch(`${API_URL}/${secrets}`);
     const data = await response.json();
     return data;
   } catch (err) {
@@ -23,7 +25,7 @@ async function getAll(secrets) {
 
 async function getById(secrets, id) {
   try {
-    const response = await fetch(`http://localhost:3000/${secrets}/${id}`);
+    const response = await fetch(`${API_URL}/${secrets}/${id}`);
     const data = await response.json();
     return data;
   } catch (err) {
@@ -49,7 +51,7 @@ async function postSecret(e) {
       body: JSON.stringify(Object.fromEntries(new FormData(e.target))),
     };
 
-    const response = await fetch("http://localhost:3000/secrets", options);
+    const response = await fetch(`${API_URL}/secrets`, options);
     const { id, err } = await response.json();
     if (err) {
       throw Error(err);
